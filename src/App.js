@@ -22,7 +22,7 @@ class App extends Component {
 	componentDidMount() {
 		axios
 			// .get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-			 .get('https://jsonplaceholder.typicode.com/todos?_limit=0')
+			 .get('https://jsonplaceholder.typicode.com/todos?_limit=10')
 			//.get('https://my-json-server.typicode.com/aarsingh/ReactToDoList?_limit=10')
 			.then((res) => this.setState({ todos: res.data }));
 	}
@@ -74,17 +74,10 @@ class App extends Component {
 				<div className='App'>
 					<div className='container'>
 						<Header />
-						<Route
-							exact
-							path='/'
-							render={(props) => (
+						<Route exact path='/' render={(props) => (
 								<React.Fragment>
 									<AddTodo addTodo={this.addTodo} />
-									<Todos
-										todos={this.state.todos}
-										markComplete={this.markComplete}
-										delTodo={this.delTodo}
-									/>
+									<Todos todos={this.state.todos}	markComplete={this.markComplete} delTodo={this.delTodo} />
 								</React.Fragment>
 							)}
 						/>
